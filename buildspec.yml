@@ -1,0 +1,20 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - echo "Installing dependencies"
+      - mvn clean install
+  pre_build:
+    commands:
+      - echo "Running tests"
+      - mvn test
+  build:
+    commands:
+      - echo "Building the application"
+      - mvn package
+  post_build:
+    commands:
+      - echo "Build completed"
+artifacts:
+  files:
+    - target/*.jar
